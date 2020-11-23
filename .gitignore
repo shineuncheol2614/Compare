@@ -1,3 +1,7 @@
+/target/
+*.properties
+# Created by stableyoung
+
 # Compiled class file
 *.class
 
