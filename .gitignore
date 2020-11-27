@@ -3,6 +3,9 @@ target/
 */target/**
 # Created by stableyoung
 
+# Java annotation processor (APT)
+.factorypath
+
 # Compiled class file
 *.class
 
