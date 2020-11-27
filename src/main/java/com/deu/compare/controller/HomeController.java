@@ -1,9 +1,5 @@
 package com.deu.compare.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
 
 import org.slf4j.Logger;
@@ -31,11 +27,11 @@ public class HomeController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
-		Date date = new Date();
+		/*Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		
 		String formattedDate = dateFormat.format(date);
@@ -44,8 +40,10 @@ public class HomeController {
 
 		List<PubMap> resultMap = testMapper.selectTestData();
 		model.addAttribute("resultMap", resultMap);
-
-		return "home";
+*/
+		
+		
+		return "main";
 	}
 	
 }
