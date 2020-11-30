@@ -4,25 +4,28 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Date;
 
-import com.deu.compare.dao.CrawlingMapper;
+import com.deu.compare.dao.exchangeMapper;
+import com.deu.compare.domain.apiVO;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 //public class openapiServicempl{
 public class openapiServicempl implements openapiService {
-	
+	private exchangeMapper mapper;
+
 	@Override
 	public void getAPI() {
 	//public static void main(String[] args) {
 		BufferedReader br = null;
-		ArrayList<String> list_cur_unit = new ArrayList<String>();
+		/*ArrayList<String> list_cur_unit = new ArrayList<String>();
 		ArrayList<String> list_deal_bas_r = new ArrayList<String>();
 		ArrayList<String> list_cur_nm = new ArrayList<String>();
+		*/
+		String krw = " ";
 		Date now = new Date();
-		CrawlingMapper mapper;
+		apiVO api = new apiVO();
 		
 		try {
 			
@@ -39,7 +42,6 @@ public class openapiServicempl implements openapiService {
 	            result = result + line;
 	        }
 
-			
 			JsonParser jsonParser = new JsonParser();
 			JsonArray jsonArray = (JsonArray) jsonParser.parse(result);
 			
@@ -47,24 +49,20 @@ public class openapiServicempl implements openapiService {
 				JsonElement jele = jsonArray.get(i);
 
 				String cur_unit = jele.getAsJsonObject().get("cur_unit").getAsString();
-				String deal_bas_r = jele.getAsJsonObject().get("deal_bas_r").getAsString();
-				String cur_nm= jele.getAsJsonObject().get("cur_nm").getAsString();
-				
-				list_cur_unit.add(cur_unit);
-				list_deal_bas_r.add(deal_bas_r);
-				list_cur_nm.add(cur_nm);
-
+				String deal_bas_r = jele.getAsJsonObject().get("deal_bas_r").getAsString();				
+				if(cur_unit.equals("USD")) {
+					krw = deal_bas_r;
+					break;
 				}
+			}
+			
+			api.setCur_unit("USD");
+			api.setKrw(krw);
+			
+			mapper.apiInsert(api);
 			
 			}
 		catch (Exception e) {
-			// TODO: handle exception
-			
 		}
-		
-		for(String str : list_cur_unit) {
-			System.out.println(str);
-		}
-		
 	}
 }
