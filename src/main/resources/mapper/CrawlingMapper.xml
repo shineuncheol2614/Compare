@@ -7,6 +7,12 @@
 		insert into test_product (product_number,product_name,price_usd,url)
 		values (seq_product.nextval, #{pName}, #{price}, #{url})
 	</insert>
-
-
+	
+	<select id = "selectData" resultType="com.deu.compare.util.PubMap">
+  		select product_name, url, price_usd, product_number from test_product order by price_usd
+	</select>
+	
+	<delete id = "delete">
+		delete from test_product
+	</delete>
 </mapper>

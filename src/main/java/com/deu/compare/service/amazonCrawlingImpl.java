@@ -2,6 +2,7 @@ package com.deu.compare.service;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.deu.compare.dao.CrawlingMapper;
 import com.deu.compare.domain.CrawlingVO;
+import com.deu.compare.util.PubMap;
 
 import lombok.AllArgsConstructor;
 import lombok.Setter;
@@ -27,15 +29,17 @@ public class amazonCrawlingImpl implements amazonCrawling {
 	//public static void main(String[] args) {
 	@Override
 	public void crawling() {
+		mapper.delete();
 		CrawlingVO vo = new CrawlingVO();
 		ArrayList<String> name = new ArrayList<String>();
 		ArrayList<String> price = new ArrayList<String>();
 		ArrayList<String> strUrl = new ArrayList<String>();
 
-		String amazonURL = "https://www.amazon.com/s?k=samsung&ref=nb_sb_noss"; //<-(samsung)검색어를 넣으면 검색가능
+		String amazonURL = "https://www.amazon.com/s?k="
+				+ "&ref=nb_sb_noss"; //<-(samsung)검색어를 넣으면 검색가능
 		// -> String keyword = "사용자에게 받은 값  ex) iphone";
 		//String amazonURL = "https://www.amazon.com/s?k="+ keyword" + &ref=nb_sb_noss";
-	    String url = "https://amazon.com/";
+	    //String url = "https://amazon.com/";
 
 		try {
 			Document amazon = Jsoup.connect(amazonURL).get();
@@ -52,7 +56,7 @@ public class amazonCrawlingImpl implements amazonCrawling {
 			}
 			
 			for(Element product : amazonUrl) {
-				strUrl.add(url + product.text());
+				strUrl.add(product.absUrl("href"));
 			}
 	        
 	       for(int i = 0; i<5;i++) {
@@ -64,6 +68,11 @@ public class amazonCrawlingImpl implements amazonCrawling {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+	}
+	@Override
+	public List<PubMap> getData() {
+		return mapper.selectData();
 		
 	}
 }

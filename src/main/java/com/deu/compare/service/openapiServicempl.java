@@ -5,28 +5,36 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Date;
+import java.util.List;
+
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Service;
 
 import com.deu.compare.dao.exchangeMapper;
 import com.deu.compare.domain.apiVO;
+import com.deu.compare.util.PubMap;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+
 //public class openapiServicempl{
+import lombok.AllArgsConstructor;
+import lombok.extern.log4j.Log4j;
+
+@Log4j
+@Service
+@AllArgsConstructor
+@Primary
 public class openapiServicempl implements openapiService {
 	private exchangeMapper mapper;
 
 	@Override
-	public void getAPI() {
-	//public static void main(String[] args) {
+	public void setAPI() {
 		BufferedReader br = null;
-		/*ArrayList<String> list_cur_unit = new ArrayList<String>();
-		ArrayList<String> list_deal_bas_r = new ArrayList<String>();
-		ArrayList<String> list_cur_nm = new ArrayList<String>();
-		*/
+
 		String krw = " ";
-		Date now = new Date();
 		apiVO api = new apiVO();
-		
+		Date now = new Date();
 		try {
 			
 			String authKey = "tBL5aEtw3MXerx4hmMVFEj123QJoqc25";
@@ -58,11 +66,17 @@ public class openapiServicempl implements openapiService {
 			
 			api.setCur_unit("USD");
 			api.setKrw(krw);
-			
+			api.setUpdateTime(now);
+			//mapper.deleteData();
 			mapper.apiInsert(api);
 			
 			}
 		catch (Exception e) {
 		}
+	}
+	
+	@Override
+	public List<PubMap> getAPI() {
+		return mapper.apiSelect();
 	}
 }

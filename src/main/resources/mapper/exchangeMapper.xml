@@ -4,6 +4,14 @@
 <mapper namespace="com.deu.compare.dao.exchangeMapper">
 
 	<insert id="apiInsert">
-        insert into EXCHANGERATEINFO(cur_unit,krw) values(#{cur_unit},#{krw})
+        insert into EXCHANGERATEINFO(cur_unit,krw,requesttime) values(#{cur_unit},#{krw},sysdate)
     </insert>
+    
+    <select id="apiSelect" resultType="com.deu.compare.util.PubMap">
+        select cur_unit,krw,requesttime from(select * from EXCHANGERATEINFO) where rownum =1
+    </select>
+    
+    <delete id = "deleteData">
+    	delete from exchangerateinfo
+    </delete>
 </mapper>

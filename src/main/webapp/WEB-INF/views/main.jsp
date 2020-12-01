@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="ko">
 <html>
@@ -88,20 +91,23 @@
   <a href="#">Contact</a>
 </div>
 
-<div class="card mb-3" style="max-width: 540px; top : 50px; left : 200px">
+<div class="card mb-3" style="max-width: 5400px; top : 50px; left : 200px">
+<c:forEach items="${amazon}" var = "test">
+
   <div class="row no-gutters">
     <div class="col-md-4">
       <img src="..." class="card-img" alt="...">
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <h5 class="card-title"> Name : <c:out value = "${test.productName}"/></h5>
+        <p class="card-text"> Price : <c:out value = "${test.priceUsd}"/></p>
+        <p class="card-text"><small class="text-muted">URL : <c:out value = "${test.url}"/></small></p>
       </div>
     </div>
   </div>
 </div>
+</c:forEach>
 
 <div class="card mb-3" style="max-width: 540px; top : 50px; left : 200px">
   <div class="row no-gutters">

@@ -13,7 +13,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.deu.compare">
+	<logger name="com.mycompany.testproj">
 		<level value="info" />
 	</logger>
 	
