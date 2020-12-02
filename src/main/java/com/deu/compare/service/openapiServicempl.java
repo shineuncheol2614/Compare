@@ -67,7 +67,7 @@ public class openapiServicempl implements openapiService {
 			api.setCur_unit("USD");
 			api.setKrw(krw);
 			api.setUpdateTime(now);
-			//mapper.deleteData();
+			mapper.deleteData();
 			mapper.apiInsert(api);
 			
 			}
@@ -76,7 +76,7 @@ public class openapiServicempl implements openapiService {
 	}
 	
 	@Override
-	public List<PubMap> getAPI() {
+	public PubMap getAPI() {
 		return mapper.apiSelect();
 	}
 }

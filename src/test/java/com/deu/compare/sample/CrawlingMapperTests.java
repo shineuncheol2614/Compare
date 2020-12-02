@@ -27,7 +27,6 @@ public class CrawlingMapperTests {
 		cra.setPName("iphone");
 		cra.setPrice("50");
 		cra.setUrl("www.naver.com");
-		cra.setInsrtUserId("shin");
 		mapper.insert(cra);
 		log.info(cra);
 	}

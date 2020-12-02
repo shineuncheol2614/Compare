@@ -28,15 +28,15 @@ public class amazonCrawlingImpl implements amazonCrawling {
 	private CrawlingMapper mapper;
 	//public static void main(String[] args) {
 	@Override
-	public void crawling() {
+	public void crawling(String str) {
 		mapper.delete();
 		CrawlingVO vo = new CrawlingVO();
 		ArrayList<String> name = new ArrayList<String>();
 		ArrayList<String> price = new ArrayList<String>();
 		ArrayList<String> strUrl = new ArrayList<String>();
+		ArrayList<String> strImg = new ArrayList<String>();
 
-		String amazonURL = "https://www.amazon.com/s?k="
-				+ "&ref=nb_sb_noss"; //<-(samsung)검색어를 넣으면 검색가능
+		String amazonURL = "https://www.amazon.com/s?k="+str+"&ref=nb_sb_noss"; //<-(samsung)검색어를 넣으면 검색가능
 		// -> String keyword = "사용자에게 받은 값  ex) iphone";
 		//String amazonURL = "https://www.amazon.com/s?k="+ keyword" + &ref=nb_sb_noss";
 	    //String url = "https://amazon.com/";
@@ -46,6 +46,7 @@ public class amazonCrawlingImpl implements amazonCrawling {
 			Elements amazonItems = amazon.getElementsByClass("a-size-medium a-color-base a-text-normal");
 			Elements amazonPrice = amazon.getElementsByClass("a-price-whole");
 	        Elements amazonUrl = amazon.getElementsByClass("a-link-normal a-text-normal");
+	        Elements amazonImg = amazon.getElementsByClass("a-section aok-relative s-image-fixed-height");
 
 			for(Element product : amazonItems) {
 				name.add(product.text());
@@ -58,14 +59,21 @@ public class amazonCrawlingImpl implements amazonCrawling {
 			for(Element product : amazonUrl) {
 				strUrl.add(product.absUrl("href"));
 			}
+			
+	         for(Element product : amazonImg) {
+	        	 Elements tmp = product.select("img");
+	        	 strImg.add(tmp.attr("src"));
+	         }
 	        
 	       for(int i = 0; i<5;i++) {
 	        	vo.setPName(name.get(i));
 	        	vo.setPrice(price.get(i));
 	        	vo.setUrl(strUrl.get(i));
+	        	vo.setImage(strImg.get(i));
 				mapper.insert(vo);
 	        }
 		} catch (IOException e) {
+			
 			e.printStackTrace();
 		}
 		

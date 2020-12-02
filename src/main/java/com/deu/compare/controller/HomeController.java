@@ -34,8 +34,36 @@ public class HomeController {
 	//@RequestMapping(value = "/main")
 	public String main(Model model) {
 		
-		service.crawling();
-		//api.setAPI();
+		service.crawling("samsung");
+		api.setAPI();
+		
+		model.addAttribute("krw",api.getAPI());
+		model.addAttribute("amazon",service.getData());
+		log.info("excute");
+		
+		return "main";
+	}
+	
+	@GetMapping("/apple")
+	//@RequestMapping(value = "/main")
+	public String Apple(Model model) {
+		
+		service.crawling("iphone");
+		api.setAPI();
+		
+		model.addAttribute("krw",api.getAPI());
+		model.addAttribute("amazon",service.getData());
+		log.info("excute");
+		
+		return "apple";
+	}
+	
+	@GetMapping("/nokia")
+	//@RequestMapping(value = "/main")
+	public String LG(Model model) {
+		
+		service.crawling("nokia");
+		api.setAPI();
 		
 		model.addAttribute("krw",api.getAPI());
 		model.addAttribute("amazon",service.getData());

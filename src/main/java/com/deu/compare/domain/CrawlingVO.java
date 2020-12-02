@@ -9,5 +9,5 @@ public class CrawlingVO {
 	private String pName;
 	private String url;
 	private String price;
-	private String insrtUserId;
+	private String image;
 }

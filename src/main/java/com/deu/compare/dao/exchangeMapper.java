@@ -7,6 +7,6 @@ import com.deu.compare.util.PubMap;
 
 public interface exchangeMapper {
 	public void apiInsert(apiVO vo);
-	public List<PubMap> apiSelect();
+	public PubMap apiSelect();
 	public void deleteData();
 }

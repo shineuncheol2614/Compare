@@ -6,5 +6,5 @@ import com.deu.compare.util.PubMap;
 
 public interface openapiService {
 	public void setAPI();
-	public List<PubMap> getAPI();
+	public PubMap getAPI();
 }
