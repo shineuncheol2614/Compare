@@ -16,11 +16,11 @@
   width: 160px; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 0; /* Stay on top */
-  top: 0; /* Stay at the top */
+  top: 50; /* Stay at the top */
   left: 0;
   background-color: #111; /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 100px;
+  padding-top: 20px;
 }
 
 /* The navigation menu links */
@@ -70,7 +70,7 @@
         <div class="nav-link">컴퓨터소프트웨어공학과 신은철</div>
       </li>
                   <li class="nav-item">
-        <div class="nav-link">정보통신공학과 이우석</div>
+        <div class="nav-link">정보통신공학과 이건우</div>
       </li>
                   <li class="nav-item">
         <div class="nav-link">기계공학과 정지연</div>
@@ -87,13 +87,13 @@
   </div>
 </nav>
 
+
 <div class="sidenav">
   <a href="http://localhost:8080/compare/main">Samsung</a>
   <a href="http://localhost:8080/compare/apple">Apple</a>
   <a href="http://localhost:8080/compare/nokia">Nokia</a>
 </div>
 <c:forEach items="${amazon}" var = "amazon">
-
 
 <div class="card mb-3" style="max-width: 700px; top : 50px; left : 200px">
   <div class="row no-gutters">

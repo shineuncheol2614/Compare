@@ -70,7 +70,7 @@
         <div class="nav-link">컴퓨터소프트웨어공학과 신은철</div>
       </li>
                   <li class="nav-item">
-        <div class="nav-link">정보통신공학과 이우석</div>
+        <div class="nav-link">정보통신공학과 이건우</div>
       </li>
                   <li class="nav-item">
         <div class="nav-link">기계공학과 정지연</div>
@@ -86,6 +86,7 @@
     </ul>
   </div>
 </nav>
+
 
 <div class="sidenav">
   <a href="http://localhost:8080/compare/main">Samsung</a>
@@ -109,7 +110,6 @@
   </div>
 </div>
 </c:forEach>
-
 
 
 </body>
