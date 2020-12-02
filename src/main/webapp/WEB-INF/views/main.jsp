@@ -97,7 +97,7 @@
 <div class="card mb-3" style="max-width: 700px; top : 50px; left : 200px">
   <div class="row no-gutters">
     <div class="col-md-4">
-      <img src="${test.img }" class="card-img" width = "10px" height = "200px">
+      <img src="${amazon.img }" class="card-img" width = "10px" height = "200px">
     </div>
     <div class="col-md-8">
       <div class="card-body">
