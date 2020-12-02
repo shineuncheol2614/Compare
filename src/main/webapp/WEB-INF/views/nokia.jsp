@@ -87,6 +87,7 @@
   </div>
 </nav>
 
+
 <div class="sidenav">
   <a href="http://localhost:8080/compare/main">Samsung</a>
   <a href="http://localhost:8080/compare/apple">Apple</a>

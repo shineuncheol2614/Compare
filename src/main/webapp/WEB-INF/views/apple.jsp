@@ -94,6 +94,7 @@
 </div>
 <c:forEach items="${amazon}" var = "amazon">
 
+
 <div class="card mb-3" style="max-width: 700px; top : 50px; left : 200px">
   <div class="row no-gutters">
     <div class="col-md-4">
