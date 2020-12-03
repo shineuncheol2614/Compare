@@ -89,10 +89,13 @@
 
 
 <div class="sidenav">
-  <a href="http://localhost:8080/compare/main">Samsung</a>
-  <a href="http://localhost:8080/compare/apple">Apple</a>
-  <a href="http://localhost:8080/compare/nokia">Nokia</a>
+	<a href="http://localhost:8080/compare/main">Samsung</a>
+	<a href="http://localhost:8080/compare/apple">Apple</a>
+	<a href="http://localhost:8080/compare/nokia">Nokia</a>
+	<a href="http://localhost:8080/compare/bookmark">Bookmark</a>
+	<a href="http://localhost:8080/compare/exchange">Exchange</a>
 </div>
+
 <c:forEach items="${amazon}" var = "amazon">
 
 <div class="card mb-3" style="max-width: 700px; top : 50px; left : 200px">

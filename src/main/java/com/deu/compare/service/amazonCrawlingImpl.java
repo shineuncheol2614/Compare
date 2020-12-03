@@ -36,10 +36,7 @@ public class amazonCrawlingImpl implements amazonCrawling {
 		ArrayList<String> strUrl = new ArrayList<String>();
 		ArrayList<String> strImg = new ArrayList<String>();
 
-		String amazonURL = "https://www.amazon.com/s?k="+str+"&ref=nb_sb_noss"; //<-(samsung)검색어를 넣으면 검색가능
-		// -> String keyword = "사용자에게 받은 값  ex) iphone";
-		//String amazonURL = "https://www.amazon.com/s?k="+ keyword" + &ref=nb_sb_noss";
-	    //String url = "https://amazon.com/";
+		String amazonURL = "https://www.amazon.com/s?k="+str+"&ref=nb_sb_noss";
 
 		try {
 			Document amazon = Jsoup.connect(amazonURL).get();

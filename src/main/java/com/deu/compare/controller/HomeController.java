@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.deu.compare.service.amazonCrawling;
 import com.deu.compare.service.openapiService;
@@ -71,5 +73,24 @@ public class HomeController {
 		
 		return "main";
 	}
-	
+
+	// @PostMapping("/exchange")
+	@RequestMapping(value = "/exchange", method = { RequestMethod.GET, RequestMethod.POST })
+	public String Exchange(Model model) {
+		log.info("excute");
+
+		model.addAttribute("krw",api.getAPI());
+		return "exchange";
+
+	}
+
+	@GetMapping("/bookmark")
+	// @RequestMapping(value = "/main")
+	public String Bookmark(Model model) {
+		log.info("excute");
+
+		model.addAttribute("krw",api.getAPI());
+		return "bookmark";
+	}
+
 }
