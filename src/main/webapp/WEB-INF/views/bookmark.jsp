@@ -11,24 +11,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Compare</title>
 <style>
-.sticky {
-	position: fixed;
-	top: 0;
-	left: 0;
-	rignt: 0;
-	width: 100;
-}
-
-.sticky+.sidenav {
-	padding-top: 102px;
-}
 
 .sidenav {
 	height: 100%; /* Full-height: remove this if you want "auto" height */
 	width: 160px; /* Set the width of the sidebar */
 	position: fixed; /* Fixed Sidebar (stay in place on scroll) */
 	z-index: 0; /* Stay on top */
-	top: 50; /* Stay at the top */
+	top: 0; /* Stay at the top */
 	left: 0;
 	background-color: #111; /* Black */
 	overflow-x: hidden; /* Disable horizontal scroll */
@@ -81,7 +70,7 @@
 
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#"><h4>
+		<a class="navbar-brand" href="#" style = "position:relative; left:170px;"><h4>
 				<b>Compare</b>
 			</h4></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -92,27 +81,26 @@
 		<div class="collapse navbar-collapse" id="navbarNavDropdown">
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<div class="nav-link">
+					<div class="nav-link" style = "position:relative; left:170px;">
 						<h3>
 							기준 환율 :
 							<c:out value="${krw.krw}" />
 						</h3>
 					</div>
 				</li>
-
-				<li class="nav-item">
+				<li class="nav-item" style = "position:relative; left:180px;">
 					<div class="nav-link">컴퓨터소프트웨어공학과 신은철</div>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item" style = "position:relative; left:210px;">
 					<div class="nav-link">정보통신공학과 이건우</div>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item" style = "position:relative; left:240px;">
 					<div class="nav-link">기계공학과 정지연</div>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item" style = "position:relative; left:270px;">
 					<div class="nav-link">전자공학과 황지석</div>
 				</li>
-				<li class="nav-item dropdown">
+				<li class="nav-item dropdown" style = "position:relative; left:310px;">
 					<div class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
 						role="button" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false">Compare Team</div>
