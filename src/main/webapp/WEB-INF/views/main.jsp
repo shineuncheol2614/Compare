@@ -93,7 +93,14 @@
 			</ul>
 		</div>
 	</nav>
-
+	<form name="searchForm" method="get" target="_blank" action="">
+	
+		<div style = "position:relative; left:1200px">
+			<input type="text" name="query" value="" />
+			<input type="button" onclick="searchPortal()" value="°Ë»ö" />
+		</div>
+			
+	</form>
 
 <div class="sidenav">
 	<a href="http://localhost:8080/compare/main">Samsung</a>
@@ -121,6 +128,14 @@
 </div>
 </c:forEach>
 
+
+<script type="text/javascript">
+		function searchPortal(){
+			var f = document.searchForm;
+			window.open('https://www.amazon.com/s?k='+f.query.value+'&ref=nb_sb_noss');
+			return;
+		}
+	</script>
 
 </body>
 </html>
